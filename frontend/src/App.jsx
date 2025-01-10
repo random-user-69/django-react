@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router";
-import { ProductsList } from "./features/products/ProductsList";
+import { ProductsListWithSearch } from "./features/products/ProductsListWithSearch";
 import { Navbar } from "./components/Navbar";
 import { CategoriesList } from "./features/categories/CategoriesList";
 
@@ -10,7 +10,7 @@ function App() {
         <Navbar />
         {/* <CategoriesList /> */}
         <Routes>
-          <Route path="/products" element={<ProductsList />} />
+          <Route path="/products" element={<ProductsListWithSearch />} />
         </Routes>
       </Router>
     </>

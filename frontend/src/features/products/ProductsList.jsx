@@ -1,14 +1,9 @@
+import React from "react";
 import { useGetProductsQuery } from "./productsSlice";
 import { ProductCard } from "./ProductCard";
 import { Box, Grid, GridItem, Heading } from "@chakra-ui/react";
-import { useSelector } from "react-redux";
-import { selectSearchValue } from "../search/searchSlice";
-import { useDebounce } from "@/hooks/useDebounce";
 
-export const ProductsList = () => {
-  const searchSelector = useSelector(selectSearchValue);
-  const search = useDebounce(searchSelector);
-
+export const ProductsList = React.memo(({ search }) => {
   const {
     data: products = [],
     isLoading,
@@ -43,4 +38,6 @@ export const ProductsList = () => {
       {content}
     </Box>
   );
-};
+});
+
+ProductsList.displayName = "ProductList";
